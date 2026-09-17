@@ -64,13 +64,21 @@
 
   /* ---- Product header, counters, table ------------------------------------ */
 
+  /* Category chips come from the design system (.badge-product in ally-components.css) rather
+   * than hand-rolled inline styles, so a new category is a data change, not a style change. */
+  function badgeChips(list) {
+    return list.map(function (b) {
+      return '<span class="badge-product ' + esc(b.category) + '">' + esc(b.label) + '</span>';
+    }).join('');
+  }
+
   function header(v) {
     return '' +
-      '<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid #DADEE3;margin-bottom:22px;">' +
         '<div>' +
-          '<div style="display:flex;align-items:center;gap:10px;">' +
+          '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' +
             '<h1 style="font-size:24px;font-weight:600;margin:0;">' + esc(v.productTitle) + '</h1>' +
-            '<span style="background:#F5F5F5;color:#465161;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;letter-spacing:0.3px;">' + esc(v.productBadge) + '</span>' +
+            badgeChips(v.productBadges) +
           '</div>' +
           '<div style="font-size:14px;color:#757575;font-style:italic;margin-top:4px;">antihemophilic factor VIII, full length 250 (+/-) unit IV solution</div>' +
         '</div>' +
@@ -323,7 +331,7 @@
           '<div style="min-width:0;">' +
             '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
               '<span style="font-size:15px;font-weight:600;">' + esc(p.title) + '</span>' +
-              '<span style="' + css(p.badgeStyle) + '">' + esc(p.badge) + '</span>' +
+              badgeChips(p.badges) +
             '</div>' +
             '<div style="font-size:13px;color:#757575;">NDC ' + esc(p.ndc) + ' &nbsp;·&nbsp; ' + esc(p.locationText) + '</div>' +
           '</div>' +

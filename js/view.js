@@ -25,6 +25,22 @@
 
   var STATUS_FILTER_OPTIONS = ['All', 'Current', 'Restocked', 'Partial', 'Skipped'];
 
+  /* Product chips map onto the design system's category classes (ally-components.css). Vial type
+   * shares the one dark chip; anything unrecognised falls back to it rather than going unstyled. */
+  var BADGE_CATEGORY = {
+    SDV: 'cat-sdv',
+    MDV: 'cat-sdv',
+    CLIMATE: 'cat-climate',
+    PACK: 'cat-pack',
+    CIV: 'cat-civ'
+  };
+
+  function badges(labels) {
+    return (labels || []).map(function (label) {
+      return { label: label, category: BADGE_CATEGORY[label] || 'cat-sdv' };
+    });
+  }
+
   // Single-quoted on purpose: this lands in a double-quoted style="" attribute, and a double
   // quote here would close the attribute and drop the background (and the rules after it).
   // The SVG's own quotes are safe — encodeURIComponent turns them into %22.
@@ -201,17 +217,13 @@
         ? 'Door ' + p.bins[0].door + ' · Bin ' + p.bins[0].bin
         : p.bins.length + ' locations';
       return {
-        idx: i + 1, title: p.title, ndc: p.ndc, badge: p.badge,
+        idx: i + 1, title: p.title, ndc: p.ndc, badges: badges(p.badges),
         locationText: locText,
         statusLabel: meta.label,
         statusStyle: {
           display: st === 'pending' ? 'none' : 'inline-block', background: meta.bg, color: meta.color,
           fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 999,
           letterSpacing: '0.3px', whiteSpace: 'nowrap'
-        },
-        badgeStyle: {
-          background: '#F5F5F5', color: '#465161', fontSize: 10, fontWeight: 600,
-          padding: '2px 7px', borderRadius: 4, letterSpacing: '0.3px'
         },
         cardStyle: {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
@@ -224,7 +236,7 @@
 
     return {
       productTitle: curProduct.title,
-      productBadge: curProduct.badge,
+      productBadges: badges(curProduct.badges),
       ndcLabel: curProduct.ndc,
       orderLabel: curProduct.order,
       sourceLabel: curProduct.source,

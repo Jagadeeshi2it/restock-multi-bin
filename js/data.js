@@ -9,7 +9,7 @@
   var PRODUCTS = [
     {
       title: 'CARBOPLATIN 100 MG/4 ML VIAL', ndc: '11977654321', order: '0282923839',
-      source: 'BioCare', badge: 'SDV', serialCount: 10,
+      source: 'BioCare', badges: ['SDV', 'CLIMATE', 'PACK'], serialCount: 10,
       bins: [
         { door: 1, bin: 32, size: '1×1', exp: '03/2026', inventory: 40 },
         { door: 1, bin: 20, size: '2×2', exp: '01/2026', inventory: 29 },
@@ -18,14 +18,14 @@
     },
     {
       title: 'AVASTIN 400 MG/16 ML VIAL', ndc: '11987654321', order: '0328948208',
-      source: 'Genentech', badge: 'SDV', serialCount: 5,
+      source: 'Genentech', badges: ['SDV', 'CLIMATE'], serialCount: 5,
       bins: [
         { door: 2, bin: 10, size: '2×2', exp: '05/2026', inventory: 10 }
       ]
     },
     {
       title: 'RITUXIMAB 500 MG/50 ML VIAL', ndc: '50242005301', order: '0192837465',
-      source: 'Biogen', badge: 'MDV', serialCount: 8,
+      source: 'Biogen', badges: ['MDV', 'CLIMATE', 'PACK'], serialCount: 8,
       bins: [
         { door: 1, bin: 18, size: '2×2', exp: '11/2025', inventory: 22 },
         { door: 3, bin: 4, size: '1×1', exp: '08/2026', inventory: 15 },
@@ -34,7 +34,7 @@
     },
     {
       title: 'PACLITAXEL 300 MG/50 ML VIAL', ndc: '55390030450', order: '0473829102',
-      source: 'Hospira', badge: 'SDV', serialCount: 6,
+      source: 'Hospira', badges: ['SDV', 'PACK'], serialCount: 6,
       bins: [
         { door: 3, bin: 7, size: '1×1', exp: '09/2026', inventory: 30 },
         { door: 1, bin: 9, size: '2×2', exp: '01/2026', inventory: 12 }

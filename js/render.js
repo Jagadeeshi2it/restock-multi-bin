@@ -383,11 +383,13 @@
   function modals(v) {
     var out = '';
     if (v.cancelModalOpen) {
+      // Names the consequence to the technician (losing this session's work) rather than the
+      // consequence to the order, and the primary button says the verb it commits to.
       out += modal({
-        width: 600, title: 'Are you sure?', dismiss: 'onCloseCancel',
-        body: 'There are some products that still need to be restocked. If you close any remaining products will be ignored.',
+        width: 600, title: 'Are you sure you want to leave?', dismiss: 'onCloseCancel',
+        body: 'If you leave, your changes will not be saved and you will have to start over.',
         secondary: 'NO, STAY', secondaryAct: 'onCloseCancel',
-        primary: 'YES, CONTINUE', primaryAct: 'onConfirmCancel'
+        primary: 'YES, LEAVE', primaryAct: 'onConfirmCancel'
       });
     }
     if (v.switchModalOpen) {

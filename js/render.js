@@ -101,6 +101,18 @@
       '</div>';
   }
 
+  /* The counters keep their width; the scan controls give ground first, so a narrow station
+   * screen shortens the input instead of pushing Not Received off the edge. */
+  function searchControls() {
+    return '' +
+      '<div style="display:flex;gap:12px;align-items:center;flex:1;min-width:0;">' +
+        '<input placeholder="Search or scan" style="flex:1;min-width:120px;max-width:280px;padding:10px 14px;border:1px solid #BCC3CD;border-radius:8px;font-size:14px;">' +
+        '<button style="padding:10px 16px;border:1px solid #BCC3CD;border-radius:8px;background:#fff;font-weight:600;font-size:13px;color:#465161;cursor:pointer;letter-spacing:0.3px;white-space:nowrap;flex-shrink:0;">ADD MANUALLY</button>' +
+      '</div>';
+  }
+
+  /* Scan controls and the counters share one band: the technician's input on the left, the
+   * running totals it feeds on the right. */
   function counters(v) {
     var nr = v.nrEditing
       ? '<input value="' + esc(v.nrDraft) + '" data-act="onNRInput" data-blur="commitNR" data-key="onNRKey" data-fkey="nr" ' +
@@ -110,20 +122,23 @@
         '</button>' +
         '<span style="font-size:28px;font-weight:600;">' + v.notReceivedCount + '</span>';
 
-    function cell(label, value, first) {
-      return '<div' + (first ? '' : ' style="border-left:1px solid #DADEE3;padding-left:20px;"') + '>' +
+    function cell(label, value) {
+      return '<div style="border-left:1px solid #DADEE3;padding-left:20px;">' +
         '<div style="font-size:13px;color:#757575;margin-bottom:4px;">' + label + '</div>' +
         '<div style="font-size:28px;font-weight:600;">' + value + '</div></div>';
     }
 
     return '' +
-      '<div style="display:grid;grid-template-columns:repeat(4,150px);gap:20px;padding-bottom:22px;border-bottom:1px solid #DADEE3;margin-bottom:24px;justify-content:flex-end;text-align:right;">' +
-        cell('Ordered', v.ordered, true) +
-        cell('Restocked', v.restockedCount) +
-        cell('Damaged', v.damagedCount) +
-        '<div style="border-left:1px solid #DADEE3;padding-left:20px;">' +
-          '<div style="font-size:13px;color:#757575;margin-bottom:4px;">Not Received</div>' +
-          '<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">' + nr + '</div>' +
+      '<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:22px;border-bottom:1px solid #DADEE3;margin-bottom:24px;">' +
+        (v.hasBin ? searchControls() : '<div></div>') +
+        '<div style="display:grid;grid-template-columns:repeat(4,150px);gap:20px;text-align:right;flex-shrink:0;">' +
+          cell('Ordered', v.ordered) +
+          cell('Restocked', v.restockedCount) +
+          cell('Damaged', v.damagedCount) +
+          '<div style="border-left:1px solid #DADEE3;padding-left:20px;">' +
+            '<div style="font-size:13px;color:#757575;margin-bottom:4px;">Not Received</div>' +
+            '<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;">' + nr + '</div>' +
+          '</div>' +
         '</div>' +
       '</div>';
   }
@@ -167,15 +182,9 @@
   function serialTable(v) {
     return '' +
       '<div>' +
-        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">' +
-          '<div style="display:flex;gap:12px;">' +
-            '<input placeholder="Search or scan" style="width:280px;padding:10px 14px;border:1px solid #BCC3CD;border-radius:8px;font-size:14px;">' +
-            '<button style="padding:10px 16px;border:1px solid #BCC3CD;border-radius:8px;background:#fff;font-weight:600;font-size:13px;color:#465161;cursor:pointer;letter-spacing:0.3px;">ADD MANUALLY</button>' +
-          '</div>' +
-          '<div style="display:flex;gap:12px;">' +
-            '<button data-act="onRestockSelected"' + flag('disabled', v.restockSelectedDisabled) + ' style="' + css(v.restockSelectedStyle) + '">✓ RESTOCK SELECTED</button>' +
-            '<button data-act="onResetSelected"' + flag('disabled', v.resetSelectedDisabled) + ' style="' + css(v.resetSelectedStyle) + '">↺ RESET SELECTED</button>' +
-          '</div>' +
+        '<div style="display:flex;justify-content:flex-end;gap:12px;margin-bottom:16px;">' +
+          '<button data-act="onRestockSelected"' + flag('disabled', v.restockSelectedDisabled) + ' style="' + css(v.restockSelectedStyle) + '">✓ RESTOCK SELECTED</button>' +
+          '<button data-act="onResetSelected"' + flag('disabled', v.resetSelectedDisabled) + ' style="' + css(v.resetSelectedStyle) + '">↺ RESET SELECTED</button>' +
         '</div>' +
         '<div style="border:1px solid #DADEE3;border-radius:10px;overflow:hidden;background:#fff;">' +
           '<div style="display:grid;grid-template-columns:' + v.gridTemplate + ';padding:12px 20px;background:#F7F8F9;border-bottom:1px solid #DADEE3;font-size:12px;color:#757575;font-weight:600;letter-spacing:0.3px;align-items:center;">' +

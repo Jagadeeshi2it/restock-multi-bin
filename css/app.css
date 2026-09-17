@@ -1,0 +1,20 @@
+/* Prototype page styles — everything not owned by the Ally design system. */
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
+  color: var(--text-default);
+}
+
+select { appearance: auto; font-family: var(--font-sans); }
+input, button { font-family: var(--font-sans); }
+input[type=checkbox] { accent-color: var(--dark-blue-500); width: 16px; height: 16px; }
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { color: var(--dark-blue-600); }
+
+@keyframes toastIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}

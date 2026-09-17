@@ -1,0 +1,156 @@
+/* ============================================================================
+   Ally UI — Component styles. Depends on colors_and_type.css custom props.
+   ============================================================================ */
+
+/* ---- Buttons -------------------------------------------------------------- */
+.btn{font-family:var(--font-sans);font-weight:500;font-size:14px;line-height:20px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 18px;border-radius:var(--radius-m);border:1px solid transparent;
+  cursor:pointer;transition:background var(--duration-fast) var(--ease-standard),
+  border-color var(--duration-fast),color var(--duration-fast),box-shadow var(--duration-fast);
+  white-space:nowrap;user-select:none}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring)}
+.btn-sm{height:32px;padding:0 14px;font-size:14px}
+.btn-lg{height:48px;padding:0 24px;font-size:14px}
+
+/* ===== Primary Filled ===== */
+.btn-primary{background:var(--dark-blue-500);color:#fff}
+.btn-primary:hover,.btn-primary.is-hover{background:var(--dark-blue-600)}
+.btn-primary:active,.btn-primary.is-active{background:var(--dark-blue-700)}
+.btn-primary:focus-visible,.btn-primary.is-focus{background:var(--dark-blue-500);box-shadow:0 0 0 3px var(--focus-ring)}
+.btn-primary:disabled,.btn-primary.is-disabled{background:var(--bg-brand-disabled);color:#fff;cursor:not-allowed;box-shadow:none}
+
+/* ===== Primary Outline — GRAY (steel) border, blue label ===== */
+.btn-outline{background:#fff;color:var(--dark-blue-500);border-color:var(--steel-200)}
+.btn-outline:hover,.btn-outline.is-hover{background:var(--steel-50);border-color:var(--steel-200);color:var(--dark-blue-600)}
+.btn-outline:active,.btn-outline.is-active{background:var(--steel-100);border-color:var(--steel-200);color:var(--dark-blue-800)}
+.btn-outline:focus-visible,.btn-outline.is-focus{background:#fff;border-color:var(--steel-200);box-shadow:0 0 0 3px var(--focus-ring)}
+.btn-outline:disabled,.btn-outline.is-disabled{background:#fff;color:var(--bg-brand-disabled);border-color:var(--steel-200);cursor:not-allowed}
+
+/* ===== Primary Text — no border, hover fill ===== */
+.btn-text{background:transparent;color:var(--dark-blue-500);border:none}
+.btn-text:hover,.btn-text.is-hover{background:var(--steel-50);color:var(--dark-blue-600)}
+.btn-text:active,.btn-text.is-active{background:var(--steel-100);color:var(--dark-blue-800)}
+.btn-text:focus-visible,.btn-text.is-focus{background:transparent;box-shadow:0 0 0 3px var(--focus-ring)}
+.btn-text:disabled,.btn-text.is-disabled{background:transparent;color:var(--bg-brand-disabled);cursor:not-allowed}
+
+/* Inline text link (no padding) — utility for in-content links */
+.btn-link{background:transparent;color:var(--dark-blue-500);height:auto;padding:0;border:none;text-decoration:underline}
+.btn-link:hover{color:var(--dark-blue-600)}
+.btn-link:active,.btn-link.is-active{color:var(--dark-blue-800)}
+.btn-link.is-hover{color:var(--dark-blue-600)}
+.btn-link:disabled,.btn-link.is-disabled{color:var(--bg-brand-disabled);cursor:not-allowed}
+
+/* ===== Danger Filled ===== */
+.btn-danger{background:var(--red-300);color:#fff}
+.btn-danger:hover,.btn-danger.is-hover{background:var(--red-600)}
+.btn-danger:active,.btn-danger.is-active{background:var(--red-700)}
+.btn-danger:focus-visible,.btn-danger.is-focus{background:var(--red-300);box-shadow:0 0 0 3px rgba(217,52,43,.30)}
+.btn-danger:disabled,.btn-danger.is-disabled{background:var(--red-200);color:#fff;cursor:not-allowed}
+
+/* ===== Danger Outline — gray border, red label ===== */
+.btn-danger-outline{background:#fff;color:var(--red-300);border-color:var(--steel-200)}
+.btn-danger-outline:hover,.btn-danger-outline.is-hover{background:var(--steel-50);border-color:var(--steel-200);color:var(--red-600)}
+.btn-danger-outline:active,.btn-danger-outline.is-active{background:var(--steel-300);border-color:var(--steel-200);color:var(--red-800)}
+.btn-danger-outline:focus-visible,.btn-danger-outline.is-focus{background:#fff;border-color:var(--steel-200);box-shadow:0 0 0 3px rgba(217,52,43,.30)}
+.btn-danger-outline:disabled,.btn-danger-outline.is-disabled{background:#fff;color:var(--red-200);border-color:var(--steel-100);cursor:not-allowed}
+
+/* ===== Danger Text — no border, hover fill ===== */
+.btn-danger-text{background:transparent;color:var(--red-300);border:none}
+.btn-danger-text:hover,.btn-danger-text.is-hover{background:var(--steel-50);color:var(--red-600)}
+.btn-danger-text:active,.btn-danger-text.is-active{background:var(--steel-100);color:var(--red-800)}
+.btn-danger-text:focus-visible,.btn-danger-text.is-focus{background:transparent;box-shadow:0 0 0 3px rgba(217,52,43,.30)}
+.btn-danger-text:disabled,.btn-danger-text.is-disabled{background:transparent;color:var(--red-200);cursor:not-allowed}
+
+/* Ghost — icon-only chrome controls (top bar) */
+.btn-ghost{background:transparent;color:var(--dark-blue-500)}
+.btn-ghost:hover{background:var(--steel-50)}
+
+.btn-icon{width:40px;padding:0}
+.btn-icon.btn-sm{width:32px}
+
+/* ---- Inputs --------------------------------------------------------------- */
+.field{display:flex;flex-direction:column;gap:6px;font-family:var(--font-sans)}
+.field-label{font-size:14px;font-weight:500;color:var(--text-default)}
+.field-label .req{color:var(--red-300);margin-left:2px}
+.input{font-family:var(--font-sans);font-size:14px;line-height:20px;color:var(--text-default);
+  height:40px;padding:0 12px;background:#fff;border:1px solid var(--border-input);
+  border-radius:var(--radius-sm);transition:border-color var(--duration-fast),box-shadow var(--duration-fast);width:100%;box-sizing:border-box}
+.input::placeholder{color:var(--text-placeholder)}
+.input:hover{border-color:var(--border-input-hover)}
+.input:focus{outline:none;border-color:var(--border-input-focus);box-shadow:0 0 0 3px var(--focus-ring)}
+.input:disabled{background:var(--surface-disabled);color:var(--text-disabled);cursor:not-allowed}
+.input.error{border-color:var(--border-error)}
+.input.error:focus{box-shadow:0 0 0 3px rgba(217,52,43,.25)}
+.field-help{font-size:13px;color:var(--text-tertiary)}
+.field-help.error{color:var(--text-danger)}
+textarea.input{height:auto;min-height:84px;padding:10px 12px;resize:vertical}
+
+/* ---- Badges (status, solid fill) ----------------------------------------- */
+.badge{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font-sans);
+  font-size:12px;font-weight:500;line-height:16px;height:20px;padding:0 10px;border-radius:var(--radius-pill);white-space:nowrap;text-align:center}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.badge-green{background:var(--badge-green-bg);color:var(--badge-green-fg)}
+.badge-red{background:var(--badge-red-bg);color:var(--badge-red-fg)}
+.badge-yellow{background:var(--badge-yellow-bg);color:var(--badge-yellow-fg)}
+.badge-blue{background:var(--badge-blue-bg);color:var(--badge-blue-fg)}
+.badge-gray{background:var(--badge-gray-bg);color:var(--badge-gray-fg)}
+.badge-teal{background:var(--badge-teal-bg);color:var(--badge-teal-fg)}
+.badge-purple{background:var(--badge-purple-bg);color:var(--badge-purple-fg)}
+.badge-outline{background:#fff;color:var(--gray-950);box-shadow:inset 0 0 0 1px var(--steel-200)}
+
+/* ---- Product category chips (rounded-rect) -------------------------------- */
+.badge-product{display:inline-flex;align-items:center;height:22px;padding:0 9px;
+  border-radius:var(--radius-sm);font-family:var(--font-sans);font-size:12px;font-weight:600;
+  letter-spacing:.02em;white-space:nowrap;color:#fff}
+.badge-product.cat-sdv{background:var(--badge-cat-sdv)}
+.badge-product.cat-climate{background:var(--badge-cat-climate)}
+.badge-product.cat-pack{background:var(--badge-cat-pack)}
+.badge-product.cat-civ{background:var(--badge-cat-civ);color:var(--gray-950)}
+/* When the parent product row is selected, every chip collapses to navy */
+.badge-product.is-selected{background:var(--badge-product-selected);color:#fff}
+
+/* ---- Toggle --------------------------------------------------------------- */
+.toggle{position:relative;width:44px;height:24px;border-radius:var(--radius-pill);
+  background:var(--steel-200);border:none;cursor:pointer;transition:background var(--duration-base) var(--ease-standard);padding:0}
+.toggle::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;
+  background:#fff;box-shadow:var(--shadow-xs);transition:transform var(--duration-base) var(--ease-standard)}
+.toggle[aria-checked="true"]{background:var(--dark-blue-500)}
+.toggle[aria-checked="true"]::after{transform:translateX(20px)}
+.toggle:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring)}
+
+/* ---- Checkbox / Radio ----------------------------------------------------- */
+.checkbox,.radio{appearance:none;width:18px;height:18px;border:1.5px solid var(--steel-300);
+  background:#fff;cursor:pointer;display:inline-grid;place-content:center;transition:all var(--duration-fast);margin:0}
+.checkbox{border-radius:var(--radius-xs)}
+.radio{border-radius:50%}
+.checkbox:hover,.radio:hover{border-color:var(--dark-blue-500)}
+.checkbox:checked,.radio:checked{background:var(--dark-blue-500);border-color:var(--dark-blue-500)}
+.checkbox:checked::after{content:"";width:10px;height:10px;
+  background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+.radio:checked::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.checkbox:focus-visible,.radio:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring)}
+
+/* ---- Multiselect row checkbox (24px, rounded) ----------------------------- */
+.ms-ck{appearance:none;width:24px;height:24px;border:1.5px solid var(--steel-300);background:#fff;
+  border-radius:6px;cursor:pointer;display:inline-grid;place-content:center;flex:none;margin:0;transition:all 120ms}
+.ms-ck:hover{border-color:var(--dark-blue-500)}
+.ms-ck:checked{background:var(--dark-blue-500);border-color:var(--dark-blue-500)}
+.ms-ck:checked::after{content:"";width:13px;height:13px;background:center/contain no-repeat
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+
+/* ---- Tooltip -------------------------------------------------------------- */
+.tooltip{background:var(--surface-inverse);color:#fff;font-family:var(--font-sans);font-size:12px;
+  line-height:16px;padding:6px 10px;border-radius:var(--radius-sm);box-shadow:var(--shadow-md);max-width:240px}
+
+/* ---- Card ----------------------------------------------------------------- */
+.card{background:var(--bg-surface);border:1px solid var(--steel-100);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm)}
+
+/* ---- Dropdown / menu ------------------------------------------------------ */
+.menu{background:#fff;border:1px solid var(--steel-100);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-md);padding:6px;min-width:200px}
+.menu-item{font-family:var(--font-sans);font-size:14px;color:var(--text-default);padding:8px 10px;
+  border-radius:var(--radius-sm);cursor:pointer;display:flex;align-items:center;gap:10px}
+.menu-item:hover{background:var(--surface-hover)}
+.menu-item.selected{background:var(--surface-selected);color:var(--text-selected);font-weight:500}

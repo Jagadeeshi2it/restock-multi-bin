@@ -1,0 +1,295 @@
+/* ============================================================================
+   Ally UI — Colors & Type foundations
+   Healthcare management platform (Ally GPO / Ally IQ). Light theme.
+   Source of truth: "Ally UI (WIP)" Figma file — Color-Tokens + Typography frames.
+   ============================================================================ */
+
+/* Fonts — all available on Google Fonts. Substitute these @imports for local
+   /fonts/*.woff2 in production if self-hosting is required.
+   Inter        → THE typeface — the entire system is set in Inter at two weights (Regular 400 / Medium 500). */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  /* ---------------------------------------------------------------- PRIMITIVES */
+
+  /* Dark Blue — PRIMARY BRAND ramp (buttons, nav, links, active states) */
+  --dark-blue-100: #E9EEF4;
+  --dark-blue-200: #C9D5E3;
+  --dark-blue-300: #9FB4CE;
+  --dark-blue-400: #4870A1;
+  --dark-blue-500: #095192;   /* ← the Ally brand blue */
+  --dark-blue-600: #1B4577;
+  --dark-blue-700: #173A63;
+  --dark-blue-800: #122E50;
+  --dark-blue-900: #0E243F;
+  --dark-blue-950: #06182D;
+
+  /* Blue — secondary / informational accent ramp */
+  --blue-50:  #EBF3FE;
+  --blue-100: #D8E6FD;
+  --blue-200: #B1CDFC;
+  --blue-300: #89B5FA;
+  --blue-400: #629CF9;
+  --blue-500: #3B83F7;
+  --blue-600: #2F69C6;
+  --blue-700: #234F94;
+  --blue-800: #183463;
+  --blue-900: #0C1A31;
+
+  /* Steel — cool neutral (borders, surfaces, tertiary text, UI chrome) */
+  --steel-50:  #F7F8F9;
+  --steel-100: #DADEE3;
+  --steel-200: #BCC3CD;
+  --steel-300: #9FA9B7;
+  --steel-400: #818EA1;
+  --steel-500: #64748B;
+  --steel-600: #556376;
+  --steel-700: #465161;
+  --steel-800: #37404C;
+  --steel-850: #2A323C;
+  --steel-900: #1F2630;
+  --steel-950: #141A22;
+
+  /* Gray — warm-neutral surfaces & text */
+  --gray-50:  #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-300: #E0E0E0;
+  --gray-400: #BDBDBD;
+  --gray-500: #9E9E9E;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --gray-900: #212121;
+  --gray-950: #25282A;   /* near-black used for primary text */
+
+  /* Green — SUCCESS */
+  --green-50:  #E6F6F4;
+  --green-100: #D9F2EF;
+  --green-200: #B0E4DD;
+  --green-300: #5CC9BC;
+  --green-400: #00A991;
+  --green-500: #008774;   /* ← success base */
+  --green-600: #007F6D;
+  --green-700: #006557;
+  --green-800: #004C41;
+  --green-900: #003B33;
+
+  /* Red — DANGER / ERROR */
+  --red-50:  #FBEBEA;
+  --red-100: #F9E1DF;
+  --red-200: #F3C0BD;
+  --red-300: #D9342B;   /* ← danger base */
+  --red-400: #C32F27;
+  --red-500: #AE2A22;
+  --red-600: #A32720;
+  --red-700: #821F1A;
+  --red-800: #621713;
+  --red-900: #4C120F;
+  --red-950: #2F0000;
+
+  /* Dark Yellow — WARNING */
+  --dark-yellow-100: #FBF1D7;
+  --dark-yellow-300: #F5D988;
+  --dark-yellow-400: #D9A82E;
+  --dark-yellow-500: #EEC038;   /* ← warning base */
+  --dark-yellow-600: #BE9A2D;
+  --dark-yellow-700: #8F7322;
+  --dark-yellow-900: #30260B;
+
+  /* Orange — accent / tags */
+  --orange-50:  #FBEFE6;
+  --orange-300: #F1BD9C;
+  --orange-500: #E27C39;
+  --orange-600: #DB5B07;
+  --orange-800: #833704;
+
+  /* Teal — accent / tags */
+  --teal-50:  #ECF4F4;
+  --teal-300: #B4D3D3;
+  --teal-500: #579C9B;
+  --teal-700: #367473;
+
+  /* Purple — accent / info */
+  --purple-50:  #F6EEFE;
+  --purple-100: #EFE0FE;
+  --purple-300: #DAB6FC;
+  --purple-500: #B874F8;
+  --purple-600: #9D5BE0;
+  --purple-700: #8F48D2;
+
+  /* Wine — discovery accent */
+  --wine-100: #F3DAE5;
+  --wine-500: #9C2E62;
+  --wine-700: #6E1F44;
+
+  /* ---------------------------------------------------------------- SEMANTIC */
+
+  /* Surfaces / backgrounds  (Semantic Colors › background) */
+  --bg-app:              #F8FAFC;            /* app canvas */
+  --bg-surface:          #FFFFFF;            /* cards, panels, inputs */
+  --surface-container:   var(--dark-blue-50);/* DarkBlue/50  #E9EEF4 */
+  --surface-emphasis:    var(--dark-blue-100);/* DarkBlue/100 */
+  --surface-inverse:     var(--steel-700);   /* tooltips */
+  --surface-hover:       var(--steel-50);    /* dropdown/list/secondary hover */
+  --surface-selected:    var(--dark-blue-100);/* DarkBlue/100 */
+  --surface-selected-hover: var(--dark-blue-200);/* DarkBlue/200 */
+  --surface-disabled:    var(--gray-100);    /* Gray/100 */
+
+  /* background / brand */
+  --bg-brand-primary:    var(--dark-blue-500);/* DarkBlue/500 */
+  --bg-brand-hover:      var(--dark-blue-600);/* DarkBlue/600 */
+  --bg-brand-active:     var(--dark-blue-800);/* DarkBlue/800 */
+  --bg-brand-disabled:   rgba(9,81,146,0.50); /* Alpha DarkBlue500 / 50% */
+
+  /* Side navigation (Components › side navigation) */
+  --sidenav-bg:          var(--dark-blue-500);  /* default  #095192 */
+  --sidenav-item-hover:  var(--dark-blue-400);  /* hover    #4870A1 */
+  --sidenav-fg:          var(--content-inverse);/* text-on-default = White */
+  --sidenav-selection-bg:var(--content-inverse);/* selection = White pill */
+  --sidenav-selection-fg:var(--dark-blue-500);  /* text-on-selection = DarkBlue/500 */
+  --sidenav-emphasis:    var(--dark-blue-700);  /* DarkBlue/700 */
+  --sidenav-dark-emphasis:var(--dark-blue-900); /* DarkBlue/900 */
+
+  /* Badges — SOLID fill + white text (yellow uses dark text), paired per status */
+  --badge-green-bg:   var(--green-500);       --badge-green-fg:   #FFFFFF;
+  --badge-red-bg:     #C32F27;                --badge-red-fg:     #FFFFFF;
+  --badge-yellow-bg:  var(--dark-yellow-500); --badge-yellow-fg:  var(--gray-950);
+  --badge-blue-bg:    var(--blue-500);        --badge-blue-fg:    #FFFFFF;
+  --badge-gray-bg:    var(--steel-700);       --badge-gray-fg:    #FFFFFF;
+  --badge-teal-bg:    var(--teal-500);        --badge-teal-fg:    #FFFFFF;
+  --badge-purple-bg:  var(--purple-700);      --badge-purple-fg:  #FFFFFF;
+
+  /* Product category chips + the selected-state navy they collapse to */
+  --badge-cat-sdv:        var(--steel-850);    /* #2A323C */
+  --badge-cat-climate:    #18B0C4;             /* cyan */
+  --badge-cat-pack:       var(--steel-700);    /* #465161 */
+  --badge-cat-civ:        var(--dark-yellow-500);
+  --badge-product-selected: var(--dark-blue-700); /* #173A63 */
+
+  /* Content / text */
+  --content-inverse:     #FFFFFF;
+  --text-on-inverse:     var(--gray-50);      /* Gray/50 */
+  --text-on-brand:       #FFFFFF;             /* White */
+  --text-default:        var(--gray-950);     /* 25282A — body copy, headings */
+  --text-secondary:      var(--gray-600);     /* Gray/600 — captions, metadata */
+  --text-tertiary:       var(--steel-500);    /* Steel/500 — labels, hints */
+  --text-placeholder:    var(--steel-300);    /* Steel/300 */
+  --text-disabled:       var(--steel-200);    /* Steel/200 */
+  --text-selected:       var(--dark-blue-500);/* DarkBlue/500 — selected items */
+  --text-link:           var(--dark-blue-500);/* DarkBlue/500 — links */
+  /* text / state */
+  --text-info:           var(--purple-500);   /* Purple/500 */
+  --text-danger:         var(--red-300);      /* Red/300 */
+  --text-success:        var(--green-500);    /* Green/500 */
+  --text-warning:        var(--dark-yellow-500);/* DarkYellow/500 */
+  --text-discovery:      var(--wine-500);     /* Wine/500 */
+
+  /* Borders */
+  --border-default:      var(--gray-300);     /* Gray/300 */
+  --border-secondary:    var(--gray-600);     /* Gray/600 */
+  --border-inverse:      var(--steel-400);    /* Steel/400 */
+  --border-error:        var(--red-300);      /* Red/300 */
+  --border-input:        var(--steel-200);    /* Steel/200 */
+  --border-input-hover:  var(--dark-blue-500);/* DarkBlue/500 */
+  --border-input-focus:  var(--dark-blue-500);/* DarkBlue/500 */
+  --border-input-disabled:var(--steel-100);   /* Steel/100 */
+  --focus-ring:          rgba(72,112,161,0.40);  /* Alpha DarkBlue400 / 40% */
+  --error-focus-ring:    var(--red-200);      /* Red/200 */
+
+  /* Toast (Components › toast) */
+  --toast-success-bg: var(--green-100);  --toast-success-border: var(--green-400);
+  --toast-danger-bg:  var(--red-100);    --toast-danger-border:  var(--red-300);
+  --toast-info-bg:    var(--purple-100); --toast-info-border:    var(--purple-600);
+  --toast-warning-bg: var(--dark-yellow-100); --toast-warning-border: var(--dark-yellow-400);
+  --toast-neutral-bg: var(--dark-blue-100);   --toast-neutral-border: var(--steel-500);
+  --toast-fg: var(--gray-950);
+
+  /* ---------------------------------------------------------------- TYPE */
+  /* Inter is the ONLY typeface. The system uses just two weights. */
+  --font-sans:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fw-regular: 400;
+  --fw-medium:  500;
+
+  /* Type tokens — named exactly as the Figma Typography sheet.
+     Format: size / line-height, letter-spacing 0%. Weight noted per token. */
+  --metric-size: 24px;             --metric-lh: 32px;             /* Metric · Medium — metrics & metric link button */
+  --heading-medium-size: 18px;     --heading-medium-lh: 28px;     /* Heading/Medium · Medium — page, modal, side-panel title */
+  --subheading-section-size: 16px; --subheading-section-lh: 24px; /* Sub heading/Section · Medium — sectioning blocks */
+  --subheading-label-size: 14px;   --subheading-label-lh: 20px;   /* Sub heading/Label · Medium — naming a UI element */
+  --subheading-detail-size: 14px;  --subheading-detail-lh: 20px;  /* Sub heading/Detail · Regular — describing data (NDC, HCPCS) */
+  --product-name-medium-size: 16px;--product-name-medium-lh: 24px;/* Product Name/Medium · Medium */
+  --product-name-regular-size: 14px;--product-name-regular-lh: 24px;/* Product Name/Regular · Regular */
+  --body-medium-size: 14px;        --body-medium-lh: 20px;        /* Body/Medium · Medium — highlighted body & link buttons */
+  --body-regular-size: 14px;       --body-regular-lh: 20px;       /* Body/Regular · Regular — info, tooltips, table cells */
+  --caption-size: 12px;            --caption-lh: 18px;            /* Caption/Regular · Regular — helper text, captions */
+  --badge-size: 12px;              --badge-lh: 16px;              /* Badge/Medium · Medium — badges, chips */
+  --sidenav-size: 10px;            --sidenav-lh: 14px;            /* Side nav/Regular · Regular — side navigation */
+
+  /* ---------------------------------------------------------------- RADIUS (Radius collection) */
+  --radius-xs:   2px;    /* XS */
+  --radius-s:    4px;    /* S  — inputs, chips, menu items */
+  --radius-m:    6px;    /* M  — buttons, dropdowns */
+  --radius-l:    8px;    /* L  — cards, menus */
+  --radius-xl:   12px;   /* XL */
+  --radius-2xl:  16px;   /* 2XL */
+  --radius-3xl:  24px;   /* 3XL — large panels */
+  --radius-4xl:  32px;   /* 4XL */
+  --radius-pill: 999px;  /* Pill — badges, toggles, status pills */
+  --radius-circle: 50%;  /* Circle — avatars, dots */
+  /* legacy aliases */
+  --radius-sm:   var(--radius-s);   /* 4 */
+  --radius-md:   var(--radius-l);   /* 8 */
+  --radius-lg:   var(--radius-xl);  /* 12 */
+
+  /* Spacing — 2px is the smallest component unit (Unit 2) */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Elevation — restrained, cool-tinted */
+  --shadow-xs: 0 1px 2px 0 rgba(33,33,33,0.10);           /* buttons */
+  --shadow-sm: 0 1px 2px 0 rgba(228,229,231,0.24), 0 1px 3px 0 rgba(9,18,40,0.06);
+  --shadow-md: 0 4px 8px -2px rgba(9,18,40,0.10), 0 2px 4px -2px rgba(9,18,40,0.06);
+  --shadow-lg: 0 12px 24px -6px rgba(9,18,40,0.12), 0 4px 8px -4px rgba(9,18,40,0.08);
+
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---------------------------------------------------------------- SEMANTIC CLASSES (Inter, two weights) */
+.ally-metric            { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--metric-size);             line-height: var(--metric-lh);             color: var(--text-default); }
+.ally-heading           { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--heading-medium-size);     line-height: var(--heading-medium-lh);     color: var(--text-default); }
+.ally-subheading-section{ font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--subheading-section-size); line-height: var(--subheading-section-lh); color: var(--text-default); }
+.ally-subheading-label  { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--subheading-label-size);   line-height: var(--subheading-label-lh);   color: var(--text-default); }
+.ally-subheading-detail { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--subheading-detail-size);  line-height: var(--subheading-detail-lh);  color: var(--text-secondary); }
+.ally-product-name      { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--product-name-medium-size);line-height: var(--product-name-medium-lh);color: var(--text-default); }
+.ally-product-name-reg  { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--product-name-regular-size);line-height:var(--product-name-regular-lh);color: var(--text-default); }
+.ally-body-medium       { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--body-medium-size);        line-height: var(--body-medium-lh);        color: var(--text-default); }
+.ally-body              { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--body-regular-size);       line-height: var(--body-regular-lh);       color: var(--text-default); }
+.ally-body-italic       { font-family: var(--font-sans); font-weight: var(--fw-regular); font-style: italic; font-size: var(--body-regular-size); line-height: var(--body-regular-lh);   color: var(--text-secondary); }
+.ally-caption           { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--caption-size);            line-height: var(--caption-lh);            color: var(--text-secondary); }
+.ally-badge             { font-family: var(--font-sans); font-weight: var(--fw-medium);  font-size: var(--badge-size);              line-height: var(--badge-lh);              color: var(--text-default); }
+.ally-sidenav           { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--sidenav-size);            line-height: var(--sidenav-lh);            color: var(--text-default); }

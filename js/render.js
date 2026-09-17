@@ -418,7 +418,7 @@
         sidebar() +
         '<div style="flex:1;display:flex;flex-direction:column;min-width:0;position:relative;">' +
           topbar() +
-          '<div style="flex:1;overflow-y:auto;padding:28px 32px 90px;">' +
+          '<div style="flex:1;overflow-y:auto;padding:28px 32px 90px;background:#fff;">' +
             header(v) + metaGrid(v) + counters(v) +
             (v.hasBin ? serialTable(v) : emptyState()) +
           '</div>' +

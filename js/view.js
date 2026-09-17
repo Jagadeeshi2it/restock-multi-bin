@@ -25,11 +25,14 @@
 
   var STATUS_FILTER_OPTIONS = ['All', 'Current', 'Restocked', 'Partial', 'Skipped'];
 
+  // Single-quoted on purpose: this lands in a double-quoted style="" attribute, and a double
+  // quote here would close the attribute and drop the background (and the rules after it).
+  // The SVG's own quotes are safe — encodeURIComponent turns them into %22.
   function chevron(color) {
-    return 'url("data:image/svg+xml,' + encodeURIComponent(
+    return "url('data:image/svg+xml," + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="' +
       color + '" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>'
-    ) + '")';
+    ) + "')";
   }
 
   function build(s) {

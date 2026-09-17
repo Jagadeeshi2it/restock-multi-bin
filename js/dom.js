@@ -17,15 +17,20 @@
     return prop.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^(webkit|moz|ms)-/, '-$1-');
   }
 
-  /* Style object -> inline style string. Numbers get px unless the property is unitless. */
+  /* Style object -> inline style string. Numbers get px unless the property is unitless.
+   *
+   * The result always lands inside a double-quoted style="" attribute, so a double quote in a
+   * value (a url("data:…"), a content string) would close the attribute early and silently drop
+   * that declaration and every one after it. Escaping here keeps that impossible; the CSS parser
+   * sees the decoded quote either way. */
   function css(obj) {
-    if (typeof obj === 'string') return obj;
     if (!obj) return '';
-    return Object.keys(obj).map(function (k) {
+    var text = typeof obj === 'string' ? obj : Object.keys(obj).map(function (k) {
       var v = obj[k];
       if (typeof v === 'number' && !UNITLESS[k]) v = v + 'px';
       return dashed(k) + ':' + v;
     }).join(';');
+    return text.replace(QUOT, '&quot;');
   }
 
   /* Conditional attribute — emits nothing when falsy, so `disabled` never lands as disabled="false". */
